@@ -27,11 +27,27 @@ async function tablaPersonas(){
              <button id = "botonCrear"> Crear </button> 
             </a>
             <a href = "./ver-persona.html">
-             <button id = "botonVer"> Ver </button>
+             <button class = "botonVer"> Ver </button>
+            </a>
             </td>
         </tr>
         `
     })
+    botonVer(personas)
  })
 }
+
+
+function botonVer (personas){
+    let  btnsVer = document.querySelectorAll('.botonVer')
+
+    for (let i = 0; i < btnsVer.length; i++){
+        btnsVer[i].addEventListener('click', () => {
+            localStorage.setItem('id', personas[i]._id)
+        })
+    }
+}
+
+
+
 tablaPersonas()
